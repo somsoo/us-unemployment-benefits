@@ -509,9 +509,9 @@
   function calculate() {
     const stCode = stateSelectEl.value || 'US';
     const cfg = STATE_RULES[stCode] || STATE_RULES.US;
-    const hqe = Math.max(0, parseFloat(highQuarterWagesEl.value) || 0);
-    const totalWages = Math.max(hqe, parseFloat(totalBaseWagesEl.value) || 0);
-    const deps = Math.max(0, parseInt(numDependentsEl.value, 10) || 0);
+    const hqe = Math.max(0, Math.max(0, parseFloat(highQuarterWagesEl.value) || 0));
+    const totalWages = Math.max(hqe, Math.max(0, parseFloat(totalBaseWagesEl.value) || 0));
+    const deps = Math.max(0, Math.max(0, parseInt(numDependentsEl.value, 10) || 0));
     const withhold = taxWithholdEl.value === 'yes';
 
     // 1. Weekly Benefit calculation
